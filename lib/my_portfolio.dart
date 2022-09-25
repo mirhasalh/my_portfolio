@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/src/page/home_page.dart';
+import 'package:my_portfolio/router.dart';
 import 'package:my_portfolio/src/theme/my_theme.dart';
 
 class MyPortfolio extends StatelessWidget {
@@ -8,10 +8,10 @@ class MyPortfolio extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: MyRouter().router,
       title: 'My Portfolio',
       theme: MyTheme().myTheme,
-      home: const HomePage(),
     );
   }
 }

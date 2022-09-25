@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                 final data = snapshot.data;
                 return StaggeredGrid.count(
                   crossAxisCount:
-                      MediaQuery.of(context).size.width <= 500 ? 2 : 4,
+                      MediaQuery.of(context).size.width <= 500 ? 2 : 3,
                   mainAxisSpacing: 4.0,
                   crossAxisSpacing: 4.0,
                   children: List.generate(

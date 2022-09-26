@@ -2,7 +2,7 @@ class ProjectsModel {
   int? id;
   int? type;
   String? title;
-  String? est;
+  String? joined;
   String? until;
   String? desc;
   String? image;
@@ -11,7 +11,7 @@ class ProjectsModel {
       {this.id,
       this.type,
       this.title,
-      this.est,
+      this.joined,
       this.until,
       this.desc,
       this.image});
@@ -20,7 +20,7 @@ class ProjectsModel {
     id = json['id'];
     type = json['type'];
     title = json['title'];
-    est = json['est'];
+    joined = json['joined'];
     until = json['until'];
     desc = json['desc'];
     image = json['image'];
@@ -31,7 +31,7 @@ class ProjectsModel {
     data['id'] = id;
     data['type'] = type;
     data['title'] = title;
-    data['est'] = est;
+    data['joined'] = joined;
     data['until'] = until;
     data['desc'] = desc;
     data['image'] = image;

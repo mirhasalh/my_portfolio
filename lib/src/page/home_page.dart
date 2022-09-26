@@ -21,8 +21,6 @@ class _HomePageState extends State<HomePage> {
     _getProjects();
   }
 
-  static const String _whitespaces = "    ";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,18 +45,11 @@ class _HomePageState extends State<HomePage> {
                   crossAxisSpacing: 4.0,
                   children: List.generate(
                     data!.length,
-                    (index) => Card(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.network(data[index].image!),
-                          const SizedBox(height: 12.0),
-                          Text("$_whitespaces${data[index].title!}"),
-                          Text("${_whitespaces}Start: ${data[index].est!}"),
-                          Text("${_whitespaces}Until: ${data[index].until!}"),
-                          const SizedBox(height: 12.0),
-                        ],
-                      ),
+                    (index) => _ProjectCard(
+                      src: data[index].image!,
+                      title: data[index].title!,
+                      joined: data[index].joined!,
+                      until: data[index].until!,
                     ),
                   ),
                 );
@@ -76,5 +67,38 @@ class _HomePageState extends State<HomePage> {
     final data = json.decode(response);
 
     return (data as List).map((e) => ProjectsModel.fromJson(e)).toList();
+  }
+}
+
+class _ProjectCard extends StatelessWidget {
+  const _ProjectCard({
+    required this.src,
+    required this.title,
+    required this.joined,
+    required this.until,
+  });
+
+  final String src;
+  final String title;
+  final String joined;
+  final String until;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.network(src),
+          const SizedBox(height: 12.0),
+          Text(title),
+          Text(
+            "$joined - $until",
+            style: Theme.of(context).textTheme.caption,
+          ),
+          const SizedBox(height: 12.0),
+        ],
+      ),
+    );
   }
 }

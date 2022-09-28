@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              if (defaultTargetPlatform == TargetPlatform.windows) {
+              if (kIsWeb) {
                 html.window.open(
                     'https://github.com/mirhasalh/my_portfolio', '_blank');
               }

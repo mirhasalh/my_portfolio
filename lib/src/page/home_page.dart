@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.white,
             ),
           ),
-          const SizedBox(width: 12.0)
+          const SizedBox(width: 8.0)
         ],
       ),
       body: ListView(

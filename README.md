@@ -2,14 +2,16 @@
 
 A Flutter project for my portfolio.
 
-## Getting Started
+## About My Portfolio
 
-This project is a starting point for a Flutter application.
+This project is used to showcase Irhas's Flutter projects. I'm happy 😁 to prove that navigator 2.0 for web is less intimidating with help of go_router.
 
-A few resources to get you started if this is your first Flutter project:
+A few resources that help this project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Website: mirhasalh.xzy](https://mirhasalh.xyz/)
+- [go_router: A Declarative Routing Package for Flutter](https://pub.dev/packages/go_router)
+- [Hostinger: Web hosting provider](https://www.hostinger.com/)
+- [Netlify: Develop & deploy](https://www.netlify.com/)
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,

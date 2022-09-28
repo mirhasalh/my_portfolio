@@ -58,8 +58,8 @@ class _HomePageState extends State<HomePage> {
                       (index) => _ProjectCard(
                         src: data[index].image!,
                         title: data[index].title!,
-                        joined: data[index].joined!,
-                        until: data[index].until!,
+                        initialCommit: data[index].init!,
+                        projectStatus: data[index].status!,
                       ),
                     ),
                   ),
@@ -97,14 +97,14 @@ class _ProjectCard extends StatelessWidget {
   const _ProjectCard({
     required this.src,
     required this.title,
-    required this.joined,
-    required this.until,
+    required this.initialCommit,
+    required this.projectStatus,
   });
 
   final String src;
   final String title;
-  final String joined;
-  final String until;
+  final String initialCommit;
+  final String projectStatus;
 
   @override
   Widget build(BuildContext context) {
@@ -117,11 +117,12 @@ class _ProjectCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(16.0),
-                topRight: Radius.circular(16.0),
-              ),
-              child: Image.network(src)),
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(16.0),
+              topRight: Radius.circular(16.0),
+            ),
+            child: Image.network(src),
+          ),
           const SizedBox(height: 12.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -136,7 +137,15 @@ class _ProjectCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
             child: Text(
-              "$joined - $until",
+              "Initial commit • $initialCommit",
+              style: Theme.of(context).textTheme.caption,
+            ),
+          ),
+          const SizedBox(height: 4.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: Text(
+              "Project status • $projectStatus",
               style: Theme.of(context).textTheme.caption,
             ),
           ),
@@ -155,7 +164,7 @@ class _Footer extends StatelessWidget {
     return Container(
       color: const Color(0xff1d1d1f),
       alignment: Alignment.center,
-      height: 36.0,
+      height: kToolbarHeight,
       width: MediaQuery.of(context).size.width,
       child: const Text(
         "Deployed to Netlify",

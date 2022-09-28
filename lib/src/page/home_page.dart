@@ -159,7 +159,7 @@ class _ProjectCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
             child: Text(
-              "Initial commit • $initialCommit",
+              initialCommit,
               style: Theme.of(context).textTheme.caption,
             ),
           ),
@@ -167,7 +167,7 @@ class _ProjectCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
             child: Text(
-              "Project status • $projectStatus",
+              projectStatus,
               style: Theme.of(context).textTheme.caption,
             ),
           ),

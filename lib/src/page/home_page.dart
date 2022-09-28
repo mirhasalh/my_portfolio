@@ -1,8 +1,12 @@
 import 'dart:convert';
+import 'dart:html' as html;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_portfolio/src/asset/my_icons.dart';
 import 'package:my_portfolio/src/model/projects_model.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,6 +30,24 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Folio'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              if (defaultTargetPlatform == TargetPlatform.windows) {
+                html.window.open(
+                    'https://github.com/mirhasalh/my_portfolio', '_blank');
+              }
+
+              // TODO: Action for each target platforms
+            },
+            splashRadius: 20.0,
+            icon: SvgPicture.asset(
+              MyIcons.github,
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(width: 12.0)
+        ],
       ),
       body: ListView(
         padding: EdgeInsets.zero,

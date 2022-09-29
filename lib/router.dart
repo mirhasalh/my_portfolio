@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:my_portfolio/src/model/projects_model.dart';
+import 'package:my_portfolio/src/model/project_model.dart';
 import 'package:my_portfolio/src/page/pages.dart';
 
 class MyRouter {
@@ -16,7 +16,7 @@ class MyRouter {
               // ProjectsModel? project;
               return ProjectDetailsPage(
                 id: state.params["id"]!,
-                project: state.extra as ProjectsModel,
+                project: state.extra as ProjectModel,
               );
             },
           ),

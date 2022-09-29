@@ -1,14 +1,14 @@
 import 'dart:convert';
-import 'package:my_portfolio/src/shared/shared.dart';
-import 'package:universal_html/html.dart' as html;
 
+import 'package:universal_html/html.dart' as html;
+import 'package:my_portfolio/src/shared/shared.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_portfolio/src/asset/my_icons.dart';
-import 'package:my_portfolio/src/model/projects_model.dart';
+import 'package:my_portfolio/src/model/project_model.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,7 +20,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late final Future<List<ProjectsModel>> _projects = _getProjects();
+  late final Future<List<ProjectModel>> _projects = _getProjects();
 
   @override
   void initState() {
@@ -53,8 +53,9 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: ListView(
+        padding: EdgeInsets.zero,
         children: [
-          FutureBuilder<List<ProjectsModel>>(
+          FutureBuilder<List<ProjectModel>>(
             future: _projects,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
@@ -106,14 +107,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future<List<ProjectsModel>> _getProjects() async {
+  Future<List<ProjectModel>> _getProjects() async {
     final response = await rootBundle.loadString("json/projects.json");
 
     final data = json.decode(response);
 
     await Future.delayed(const Duration(seconds: 3));
 
-    return (data as List).map((e) => ProjectsModel.fromJson(e)).toList();
+    return (data as List).map((e) => ProjectModel.fromJson(e)).toList();
   }
 
   int _getAxisCount(double width) {
@@ -126,7 +127,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void _onTap(int id, ProjectsModel project) => context.go(
+  void _onTap(int id, ProjectModel project) => context.go(
         '/details/$id',
         extra: project,
       );

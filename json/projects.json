@@ -1,12 +1,14 @@
 [
     {
       "id": 8,
-      "type": 2,
+      "type": 1,
       "title": "Cross-platform Projects Gallery",
       "init": "2022",
       "status": "Active contribute",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://i.ibb.co/YDK14gJ/IMG-20220928-153642.png"
+      "image": "https://i.ibb.co/YDK14gJ/IMG-20220928-153642.png",
+      "vertical": true,
+      "tech_stack": "Hostinger,Netlify,GitHub,CI/CD"
     },
     {
       "id": 7,
@@ -15,7 +17,9 @@
       "init": "2022",
       "status": "Active contribute",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://i.ibb.co/tHx4nRN/IMG-20220928-060848.png"
+      "image": "https://i.ibb.co/tHx4nRN/IMG-20220928-060848.png",
+      "vertical": false,
+      "tech_stack": "Google Maps Platform,Laravel,REST API"
     },
     {
       "id": 6,
@@ -24,25 +28,31 @@
       "init": "2022",
       "status": "Active contribute",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://i.ibb.co/K9rmy5d/IMG-20220928-153042.png"
+      "image": "https://i.ibb.co/K9rmy5d/IMG-20220928-153042.png",
+      "vertical": false,
+      "tech_stack": "Laravel,Google Maps Platform,REST API"
     },
     {
       "id": 5,
-      "type": 2,
+      "type": 1,
       "title": "Cash App",
       "init": "2022",
       "status": "No longer contribute",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://i.ibb.co/T8dn0m8/IMG-20220928-052719.png"
+      "image": "https://i.ibb.co/T8dn0m8/IMG-20220928-052719.png",
+      "vertical": true,
+      "tech_stack": "N/A"
     },
     {
       "id": 4,
-      "type": 2,
+      "type": 1,
       "title": "Prayer Times App",
       "init": "2021",
       "status": "Active contribute",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://i.ibb.co/rymC3NS/IMG-20220928-051315.png"
+      "image": "https://i.ibb.co/rymC3NS/IMG-20220928-051315.png",
+      "vertical": false,
+      "tech_stack": "GitLab,Al Adhan API,REST API"
     },
     {
       "id": 3,
@@ -51,7 +61,9 @@
       "init": "2020",
       "status": "No longer contribute",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://i.ibb.co/jTTXNYc/IMG-20220928-054225.png"
+      "image": "https://i.ibb.co/jTTXNYc/IMG-20220928-054225.png",
+      "vertical": false,
+      "tech_stack": "n/a"
     },
     {
       "id": 2,
@@ -60,7 +72,9 @@
       "init": "2020",
       "status": "No longer contribute",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://i.ibb.co/FwCBb59/IMG-20220927-212549.png"
+      "image": "https://i.ibb.co/FwCBb59/IMG-20220927-212549.png",
+      "vertical": false,
+      "tech_stack": "Firebase,REST API,Kubernetes,Docker"
     },
     {
       "id": 1,
@@ -69,6 +83,8 @@
       "init": "2020",
       "status": "No longer contribute",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "image": "https://i.ibb.co/zhpNfmp/IMG-20220927-212519.png"
+      "image": "https://i.ibb.co/gwRDCt8/IMG-20220929-121541.png",
+      "vertical": true,
+      "tech_stack": "Firebase,REST API,Kubernetes,Docker"
     }
   ]

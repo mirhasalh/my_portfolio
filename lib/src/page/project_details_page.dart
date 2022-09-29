@@ -21,6 +21,14 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
   static const double _kTechStackPaddingVert = 3.0;
   static const String _initCommit = "Initial commit";
 
+  final BoxDecoration _techStackBoxDecor = BoxDecoration(
+    color: const Color(0xfff5f8fa),
+    borderRadius: BorderRadius.circular(20.0),
+    border: Border.all(
+      color: const Color(0xffd0d0d0),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -142,19 +150,12 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
     }
   }
 
-  final BoxDecoration _techStackBoxDecor = BoxDecoration(
-    color: const Color(0xfff5f8fa),
-    borderRadius: BorderRadius.circular(20.0),
-    border: Border.all(
-      color: const Color(0xffd0d0d0),
-    ),
-  );
-
   Widget _buildTechStack(String techStack) {
     if (techStack != 'n/a') {
       final splits = techStack.split(',');
       return Wrap(
         spacing: 6.0,
+        runSpacing: 6.0,
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
           const Text("Tech stack: "),

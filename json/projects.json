@@ -30,7 +30,7 @@
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "image": "https://i.ibb.co/K9rmy5d/IMG-20220928-153042.png",
       "vertical": false,
-      "tech_stack": "Laravel,Google Maps Platform,REST API"
+      "tech_stack": "Laravel,Google Maps Platform,REST API,Git"
     },
     {
       "id": 5,
@@ -45,14 +45,14 @@
     },
     {
       "id": 4,
-      "type": 1,
+      "type": 2,
       "title": "Prayer Times App",
       "init": "2021",
       "status": "Active contribute",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "image": "https://i.ibb.co/rymC3NS/IMG-20220928-051315.png",
       "vertical": false,
-      "tech_stack": "GitLab,Al Adhan API,REST API"
+      "tech_stack": "GitLab,REST API"
     },
     {
       "id": 3,
@@ -74,7 +74,7 @@
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "image": "https://i.ibb.co/FwCBb59/IMG-20220927-212549.png",
       "vertical": false,
-      "tech_stack": "Firebase,REST API,Kubernetes,Docker"
+      "tech_stack": "Firebase,REST API,Google Cloud Platform,Kubernetes,Docker"
     },
     {
       "id": 1,
@@ -85,6 +85,6 @@
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "image": "https://i.ibb.co/gwRDCt8/IMG-20220929-121541.png",
       "vertical": true,
-      "tech_stack": "Firebase,REST API,Kubernetes,Docker"
+      "tech_stack": "Firebase,REST API,Google Cloud Platform,Kubernetes,Docker"
     }
   ]

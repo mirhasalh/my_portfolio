@@ -112,8 +112,6 @@ class _HomePageState extends State<HomePage> {
 
     final data = json.decode(response);
 
-    await Future.delayed(const Duration(seconds: 3));
-
     return (data as List).map((e) => ProjectModel.fromJson(e)).toList();
   }
 

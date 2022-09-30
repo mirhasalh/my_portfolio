@@ -5,6 +5,7 @@ import 'package:my_portfolio/src/page/pages.dart';
 class MyRouter {
   final GoRouter router = GoRouter(
     initialLocation: '/',
+    errorBuilder: (context, state) => ErrorPage(error: '${state.error}'),
     routes: <GoRoute>[
       GoRoute(
         path: '/',

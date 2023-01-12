@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/router.dart';
-import 'package:my_portfolio/src/theme/my_theme.dart';
+import 'package:my_portfolio/src/theme/theme.dart';
 
 class MyPortfolio extends StatelessWidget {
   const MyPortfolio({super.key});
@@ -9,9 +9,9 @@ class MyPortfolio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: MyRouter().router,
+      routerConfig: kRouterConfig,
       title: 'My Portfolio',
-      theme: MyTheme().myTheme,
+      theme: kTheme,
     );
   }
 }

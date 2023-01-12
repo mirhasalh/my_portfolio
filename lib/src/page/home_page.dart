@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_portfolio/src/asset/my_icons.dart';
+import 'package:my_portfolio/src/asset/icon_assets.dart';
 import 'package:my_portfolio/src/model/project_model.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:go_router/go_router.dart';
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
             },
             splashRadius: 20.0,
             icon: SvgPicture.asset(
-              MyIcons.github,
+              IconAssets.github,
               color: Colors.white,
             ),
           ),

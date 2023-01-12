@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyTheme {
-  ThemeData myTheme = ThemeData(
+
+  ThemeData kTheme = ThemeData(
     // This is the theme of your application.
     //
     // Try running your application with "flutter run". You'll see the
@@ -13,4 +13,4 @@ class MyTheme {
     // is not restarted.
     primarySwatch: Colors.blue,
   );
-}
+

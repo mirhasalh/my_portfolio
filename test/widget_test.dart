@@ -7,7 +7,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:my_portfolio/my_portfolio.dart';
+import 'package:my_portfolio/app.dart';
 
 void main() {
   testWidgets('Build our app smoke test', (WidgetTester tester) async {

@@ -7,10 +7,19 @@ class ErrorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      alignment: Alignment.center,
-      child: Text(error),
+    return Scaffold(
+      body: Container(
+        color: Colors.white,
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('404. Page was not found.'),
+            const SizedBox(height: 8.0),
+            Text(error, style: Theme.of(context).textTheme.caption),
+          ],
+        ),
+      ),
     );
   }
 }

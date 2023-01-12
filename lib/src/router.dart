@@ -2,9 +2,9 @@ import 'package:go_router/go_router.dart';
 import 'package:my_portfolio/src/model/project_model.dart';
 import 'package:my_portfolio/src/page/pages.dart';
 
-final GoRouter kRouterConfig = GoRouter(
+final kRouterConfig = GoRouter(
   initialLocation: '/',
-  errorBuilder: (context, state) => ErrorPage(error: '${state.error}'),
+  routerNeglect: true,
   routes: <GoRoute>[
     GoRoute(
       path: '/',
@@ -13,14 +13,21 @@ final GoRouter kRouterConfig = GoRouter(
         GoRoute(
           path: 'details/:id',
           builder: (context, state) {
-            // ProjectsModel? project;
             return ProjectDetailsPage(
               id: state.params["id"]!,
               project: state.extra as ProjectModel,
             );
           },
+          redirect: (context, state) {
+            if (state.extra == null) {
+              return '/';
+            }
+
+            return null;
+          },
         ),
       ],
     )
   ],
+  errorBuilder: (context, state) => ErrorPage(error: '${state.error}'),
 );

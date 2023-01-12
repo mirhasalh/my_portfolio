@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: ListView(
-        padding: EdgeInsets.zero,
+        padding: const EdgeInsets.symmetric(vertical: kToolbarHeight),
         children: [
           FutureBuilder<List<ProjectModel>>(
             future: _projects,
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                         'Development Snippets',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      const SizedBox(height: 12.0),
+                      const SizedBox(height: 28.0),
                       StaggeredGrid.count(
                         crossAxisCount:
                             _getAxisCount(MediaQuery.of(context).size.width),
@@ -101,9 +101,9 @@ class _HomePageState extends State<HomePage> {
               }
             },
           ),
-          const Footer(),
         ],
       ),
+      bottomSheet: const Footer(),
     );
   }
 

@@ -38,9 +38,9 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
       body: ListView(
         children: [
           _buildProjectDetails(widget.project.vertical!),
-          const Footer(),
         ],
       ),
+      bottomSheet: const Footer(),
     );
   }
 

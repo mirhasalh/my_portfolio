@@ -12,6 +12,6 @@ import 'package:my_portfolio/app.dart';
 void main() {
   testWidgets('Build our app smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyPortfolio());
+    await tester.pumpWidget(const App());
   });
 }

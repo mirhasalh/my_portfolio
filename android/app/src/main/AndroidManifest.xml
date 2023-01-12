@@ -2,7 +2,7 @@
     package="xyz.mirhasalh.my_portfolio">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="FFolio"
+        android:label="Flutter Folio"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

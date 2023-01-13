@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:universal_html/html.dart' as html;
-import 'package:my_portfolio/src/shared/shared.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -70,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       const SizedBox(height: 12.0),
                       Text(
-                        'Development Snippets',
+                        'Showcases',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(height: 28.0),
@@ -103,7 +102,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      bottomSheet: const Footer(),
     );
   }
 

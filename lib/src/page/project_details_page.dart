@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/src/model/project_model.dart';
-import 'package:my_portfolio/src/shared/shared.dart';
 
 class ProjectDetailsPage extends StatefulWidget {
   const ProjectDetailsPage({
@@ -36,11 +35,11 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
         title: const Text("Project Info"),
       ),
       body: ListView(
+        padding: const EdgeInsets.only(bottom: kToolbarHeight),
         children: [
           _buildProjectDetails(widget.project.vertical!),
         ],
       ),
-      bottomSheet: const Footer(),
     );
   }
 

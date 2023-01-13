@@ -13,6 +13,8 @@ import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const kGitRepoUrl = 'https://github.com/mirhasalh/my_portfolio';
+const kDropboxUrl =
+    'https://www.dropbox.com/sh/6c9e5v8pk1wx5r4/AACxASmgj5xSzi5yHhZy0GEZa?dl=0';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -36,6 +38,21 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Flutter Folio'),
         actions: [
+          IconButton(
+            onPressed: () {
+              if (kIsWeb) {
+                html.window.open(
+                  kDropboxUrl,
+                  '_blank',
+                );
+
+                return;
+              }
+
+              _launchUrl(kDropboxUrl);
+            },
+            icon: const Icon(Icons.android),
+          ),
           IconButton(
             onPressed: () {
               if (kIsWeb) {

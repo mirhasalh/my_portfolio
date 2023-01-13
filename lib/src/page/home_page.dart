@@ -10,6 +10,9 @@ import 'package:my_portfolio/src/asset/icon_assets.dart';
 import 'package:my_portfolio/src/model/project_model.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+const kGitRepoUrl = 'https://github.com/mirhasalh/my_portfolio';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -37,10 +40,14 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               if (kIsWeb) {
                 html.window.open(
-                    'https://github.com/mirhasalh/my_portfolio', '_blank');
+                  kGitRepoUrl,
+                  '_blank',
+                );
+
+                return;
               }
 
-              // TODO: Action for each target platforms
+              _launchUrl(kGitRepoUrl);
             },
             splashRadius: 20.0,
             icon: SvgPicture.asset(
@@ -127,6 +134,17 @@ class _HomePageState extends State<HomePage> {
         '/details/$id',
         extra: project,
       );
+
+  Future<void> _launchUrl(String url) async {
+    if (!await launchUrl(Uri.parse(url),
+        mode: LaunchMode.platformDefault,
+        webViewConfiguration: const WebViewConfiguration(
+          enableJavaScript: true,
+          enableDomStorage: true,
+        ))) {
+      throw 'Could not launch $url';
+    }
+  }
 }
 
 class _ProjectCard extends StatelessWidget {

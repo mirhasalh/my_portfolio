@@ -5,7 +5,7 @@
       "title": "Cross-platform Projects Gallery",
       "init": "2022",
       "status": "Active contribute",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "desc": "Simple app to showcases my Flutter journey.",
       "image": "https://i.ibb.co/YDK14gJ/IMG-20220928-153642.png",
       "vertical": true,
       "tech_stack": "Hostinger,Netlify,GitHub,CI/CD"
@@ -16,10 +16,10 @@
       "title": "Logistic App",
       "init": "2022",
       "status": "Active contribute",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "desc": "Manage the schedules and work for partner from its main company.",
       "image": "https://i.ibb.co/tHx4nRN/IMG-20220928-060848.png",
       "vertical": false,
-      "tech_stack": "Google Maps Platform,Laravel,REST API"
+      "tech_stack": "Google Maps Platform,Laravel,RESTful API"
     },
     {
       "id": 6,
@@ -27,10 +27,10 @@
       "title": "Services Reservation App",
       "init": "2022",
       "status": "Active contribute",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "desc": "Home service reservation for customers.",
       "image": "https://i.ibb.co/K9rmy5d/IMG-20220928-153042.png",
       "vertical": false,
-      "tech_stack": "Laravel,Google Maps Platform,REST API,Git"
+      "tech_stack": "Laravel,Google Maps Platform,RESTful API,Git"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "title": "Cash App",
       "init": "2022",
       "status": "No longer contribute",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "desc": "Random design from Figma free resources.",
       "image": "https://i.ibb.co/T8dn0m8/IMG-20220928-052719.png",
       "vertical": true,
       "tech_stack": "n/a"
@@ -49,10 +49,10 @@
       "title": "Prayer Times App",
       "init": "2021",
       "status": "Active contribute",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "desc": "Simple prayer times app with the data from open source RESTful APIs.",
       "image": "https://i.ibb.co/rymC3NS/IMG-20220928-051315.png",
       "vertical": false,
-      "tech_stack": "GitLab,REST API"
+      "tech_stack": "GitLab,RESTful API"
     },
     {
       "id": 3,
@@ -60,7 +60,7 @@
       "title": "Travell & Social App",
       "init": "2020",
       "status": "No longer contribute",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "desc": "Travel agency app for promoting its product with social features.",
       "image": "https://i.ibb.co/jTTXNYc/IMG-20220928-054225.png",
       "vertical": false,
       "tech_stack": "n/a"
@@ -71,10 +71,10 @@
       "title": "Partner App",
       "init": "2020",
       "status": "No longer contribute",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "desc": "The app for managing delivery partner.",
       "image": "https://i.ibb.co/FwCBb59/IMG-20220927-212549.png",
       "vertical": false,
-      "tech_stack": "Firebase,REST API,Google Cloud Platform,Kubernetes,Docker"
+      "tech_stack": "Firebase,RESTful API,Google Cloud Platform,Kubernetes,Docker"
     },
     {
       "id": 1,
@@ -82,9 +82,9 @@
       "title": "Food Delivery App",
       "init": "2020",
       "status": "No longer contribute",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "desc": "Simple multi merchant food delivery app",
       "image": "https://i.ibb.co/gwRDCt8/IMG-20220929-121541.png",
       "vertical": true,
-      "tech_stack": "Firebase,REST API,Google Cloud Platform,Kubernetes,Docker"
+      "tech_stack": "Firebase,RESTful API,Google Cloud Platform,Kubernetes,Docker"
     }
   ]

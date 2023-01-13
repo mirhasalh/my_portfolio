@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
               _launchUrl(kDropboxUrl);
             },
             icon: const Icon(Icons.android),
+            splashRadius: 20.0,
           ),
           IconButton(
             onPressed: () {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/src/utils/string_format.dart';
 import 'package:photo_view/photo_view.dart';
 
 const kBaseUrl = 'https://i.ibb.co';
@@ -21,7 +22,7 @@ class ViewImagePage extends StatelessWidget {
       backgroundColor: Colors.black87,
       body: PhotoView(
         heroAttributes: PhotoViewHeroAttributes(tag: path),
-        imageProvider: NetworkImage('$kBaseUrl$path'),
+        imageProvider: NetworkImage('$kBaseUrl${StringFormat().path(path)}'),
       ),
     );
   }

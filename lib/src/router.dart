@@ -11,9 +11,9 @@ final kRouterConfig = GoRouter(
       routes: [
         GoRoute(
           name: ViewImagePage.routeName,
-          path: 'image/:path',
+          path: ':path/:path2',
           builder: (context, state) => ViewImagePage(
-            path: state.params['path']!,
+            path: '${state.params['path']!}${state.params['path2']!}',
           ),
         ),
       ],

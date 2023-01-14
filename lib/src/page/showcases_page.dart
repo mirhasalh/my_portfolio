@@ -123,9 +123,15 @@ class _ShowcasesPageState extends State<ShowcasesPage> {
                       initialCommit: proj[index].init!,
                       projectStatus: proj[index].status!,
                       onTap: () {
+                        var split =
+                            Uri.parse(proj[index].image!).path.split('/');
+
+                        final path2 = split.last;
+                        final path = split[split.length - 2];
+
                         final location = context.namedLocation(
                           ViewImagePage.routeName,
-                          params: {'path': Uri.parse(proj[index].image!).path},
+                          params: {'path': path, 'path2': path2},
                         );
 
                         context.go(location);
@@ -290,7 +296,7 @@ class _Project extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(9.0),
                 child: Hero(
-                  tag: Uri.parse(src).path,
+                  tag: Uri.parse(src).path.replaceAll(RegExp(r'/'), ''),
                   child: kIsWeb
                       ? Image.network(src)
                       : FadeInImage.memoryNetwork(

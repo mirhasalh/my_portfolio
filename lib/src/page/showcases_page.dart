@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
+import 'package:my_portfolio/src/page/pages.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ import 'package:my_portfolio/src/asset/icon_assets.dart';
 import 'package:my_portfolio/src/model/project_model.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:go_router/go_router.dart';
 
 const kGitRepoUrl = 'https://github.com/mirhasalh/my_portfolio';
 const kDropboxUrl =
@@ -46,15 +48,9 @@ class _ShowcasesPageState extends State<ShowcasesPage> {
           child: BackdropFilter(
             filter: ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
             child: AppBar(
-              title: Text(
-                'Showcases',
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      color: Colors.black54,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
+              title: const Text('Showcases'),
               elevation: 0.0,
-              backgroundColor: Colors.transparent,
+              backgroundColor: Colors.black87,
               actions: [
                 IconButton(
                   tooltip: 'Download APK',
@@ -70,7 +66,7 @@ class _ShowcasesPageState extends State<ShowcasesPage> {
 
                     _launchUrl(kDropboxUrl);
                   },
-                  icon: const Icon(Icons.android, color: Colors.black54),
+                  icon: const Icon(Icons.android),
                   splashRadius: 20.0,
                 ),
                 IconButton(
@@ -90,10 +86,9 @@ class _ShowcasesPageState extends State<ShowcasesPage> {
                   splashRadius: 20.0,
                   icon: SvgPicture.asset(
                     IconAssets.github,
-                    color: Colors.black54,
+                    color: Colors.white,
                   ),
                 ),
-                const SizedBox(width: kIsWeb ? 8.0 : 0.0)
               ],
             ),
           ),
@@ -117,8 +112,8 @@ class _ShowcasesPageState extends State<ShowcasesPage> {
                 StaggeredGrid.count(
                   crossAxisCount:
                       _getAxisCount(MediaQuery.of(context).size.width),
-                  mainAxisSpacing: 4.0,
-                  crossAxisSpacing: 4.0,
+                  mainAxisSpacing: 6.0,
+                  crossAxisSpacing: 6.0,
                   children: List.generate(
                     proj!.length,
                     (index) => _Project(
@@ -127,7 +122,15 @@ class _ShowcasesPageState extends State<ShowcasesPage> {
                       title: proj[index].title!,
                       initialCommit: proj[index].init!,
                       projectStatus: proj[index].status!,
-                      onTap: () {},
+                      onTap: () {
+                        final location = context.namedLocation(
+                          ViewImagePage.routeName,
+                          params: {'path': Uri.parse(proj[index].image!).path},
+                        );
+
+                        context.go(location);
+                      },
+                      onTapInfo: () => _showInfo(proj[index]),
                     ),
                   ),
                 ),
@@ -167,6 +170,92 @@ class _ShowcasesPageState extends State<ShowcasesPage> {
       throw 'Could not launch $url';
     }
   }
+
+  void _showInfo(ProjectModel project) {
+    showModalBottomSheet(
+      backgroundColor: Colors.white,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
+      ),
+      context: context,
+      builder: (context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const _DragHandler(),
+          Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(project.desc!,
+                    style: Theme.of(context).textTheme.subtitle1),
+                Text(
+                  'Description',
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2!
+                      .copyWith(color: Colors.black54),
+                ),
+              ],
+            ),
+          ),
+          const Divider(height: 0.0),
+          ListTile(
+            title: Text(project.title!),
+            subtitle: const Text('Project title'),
+          ),
+          const Divider(height: 0.0),
+          ListTile(
+            title: Text(
+                project.type == 2 ? 'Associated with company' : 'Personal'),
+            subtitle: const Text('Type'),
+          ),
+          const Divider(height: 0.0),
+          ListTile(
+            title: Text(project.status!),
+            subtitle: const Text('Status'),
+          ),
+          const Divider(height: 0.0),
+          ListTile(
+            title: Text(project.init!),
+            subtitle: const Text('Initial commit'),
+          ),
+          const Divider(height: 0.0),
+          Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(_techStackFormat(project.techStack!),
+                    style: Theme.of(context).textTheme.subtitle1),
+                Text(
+                  'Tech stack',
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2!
+                      .copyWith(color: Colors.black54),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _techStackFormat(String text) {
+    if (text == 'n/a') {
+      return 'UI kit only';
+    }
+
+    var split = text.split(',');
+
+    return split.join(', ');
+  }
 }
 
 class _Project extends StatelessWidget {
@@ -177,6 +266,7 @@ class _Project extends StatelessWidget {
     required this.initialCommit,
     required this.projectStatus,
     required this.onTap,
+    required this.onTapInfo,
   });
 
   final String id;
@@ -185,6 +275,7 @@ class _Project extends StatelessWidget {
   final String initialCommit;
   final String projectStatus;
   final VoidCallback onTap;
+  final VoidCallback onTapInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -196,22 +287,51 @@ class _Project extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Hero(
-                tag: id,
-                child: !kIsWeb
-                    ? FadeInImage.memoryNetwork(
-                        placeholder: kTransparentImage,
-                        image: src,
-                      )
-                    : Image.network(src),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(9.0),
+                child: Hero(
+                  tag: Uri.parse(src).path,
+                  child: kIsWeb
+                      ? Image.network(src)
+                      : FadeInImage.memoryNetwork(
+                          placeholder: kTransparentImage,
+                          image: src,
+                        ),
+                ),
               ),
             ],
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: onTapInfo,
             icon: const Icon(
               Icons.info_outline,
               color: Colors.white70,
+            ),
+            tooltip: 'Info',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _DragHandler extends StatelessWidget {
+  const _DragHandler();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 12.0, bottom: 16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Container(
+            height: 4,
+            width: 40,
+            decoration: BoxDecoration(
+              color: Colors.black12,
+              borderRadius: BorderRadius.circular(9.0),
             ),
           ),
         ],

@@ -8,7 +8,16 @@ final kRouterConfig = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) => const ShowcasesPage(),
-    )
+      routes: [
+        GoRoute(
+          name: ViewImagePage.routeName,
+          path: 'image/:path',
+          builder: (context, state) => ViewImagePage(
+            path: state.params['path']!,
+          ),
+        ),
+      ],
+    ),
   ],
   errorBuilder: (context, state) => ErrorPage(error: '${state.error}'),
 );

@@ -1,10 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
+
+const kBaseUrl = 'https://i.ibb.co';
 
 class ViewImagePage extends StatelessWidget {
-  const ViewImagePage({super.key});
+  static const routeName = 'image';
+
+  const ViewImagePage({super.key, required this.path});
+
+  final String path;
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+      ),
+      backgroundColor: Colors.black87,
+      body: PhotoView(
+        heroAttributes: PhotoViewHeroAttributes(tag: path),
+        imageProvider: NetworkImage('$kBaseUrl$path'),
+      ),
+    );
   }
 }

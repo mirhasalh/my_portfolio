@@ -16,7 +16,7 @@ class ErrorPage extends StatelessWidget {
           children: [
             const Text('404. Page was not found.'),
             const SizedBox(height: 8.0),
-            Text(error, style: Theme.of(context).textTheme.caption),
+            Text(error, style: Theme.of(context).textTheme.bodySmall),
           ],
         ),
       ),

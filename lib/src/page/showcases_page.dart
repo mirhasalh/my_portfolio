@@ -197,12 +197,12 @@ class _ShowcasesPageState extends State<ShowcasesPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(project.desc!,
-                    style: Theme.of(context).textTheme.subtitle1),
+                    style: Theme.of(context).textTheme.titleMedium),
                 Text(
                   'Description',
                   style: Theme.of(context)
                       .textTheme
-                      .subtitle2!
+                      .titleSmall!
                       .copyWith(color: Colors.black54),
                 ),
               ],
@@ -237,12 +237,12 @@ class _ShowcasesPageState extends State<ShowcasesPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(_techStackFormat(project.techStack!),
-                    style: Theme.of(context).textTheme.subtitle1),
+                    style: Theme.of(context).textTheme.titleMedium),
                 Text(
                   'Tech stack',
                   style: Theme.of(context)
                       .textTheme
-                      .subtitle2!
+                      .titleSmall!
                       .copyWith(color: Colors.black54),
                 ),
               ],

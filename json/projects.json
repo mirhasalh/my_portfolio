@@ -1,5 +1,16 @@
 [
     {
+      "id": 9,
+      "type": 1,
+      "title": "Location Finder App",
+      "init": "2023",
+      "status": "Active contribute",
+      "desc": "Demo app to discover seamless location finder app.",
+      "image": "https://i.ibb.co/ZV32rBP/IMG-20230127-221212.png",
+      "vertical": true,
+      "tech_stack": "Google Maps Platform,GitLab,Riverpod"
+    },  
+    {
       "id": 8,
       "type": 1,
       "title": "Cross-platform Projects Gallery",

@@ -9,7 +9,7 @@ This project is used to showcase Irhas's Flutter projects. I'm happy 😁 to pro
 A few resources related to this project:
 
 - [Download APK](https://www.dropbox.com/s/o4p1d5oh8mq4fgq/2023-01-15%20-%20Flutter%20Folio.apk?dl=0)
-- [Website: mirhasalh.xzy](https://mirhasalh.xyz/)
+- [Website: flutter.mirhasalh.xzy](https://flutter.mirhasalh.xyz/#/)
 - [go_router: A Declarative Routing Package for Flutter](https://pub.dev/packages/go_router)
 - [Hostinger: Web hosting provider](https://www.hostinger.com/)
 - [Netlify: Develop & deploy](https://www.netlify.com/)

@@ -27,6 +27,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
   @override
   Widget build(BuildContext context) {
     final projects = ref.watch(projectsProvider);
+    final colors = Theme.of(context).colorScheme;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -41,7 +42,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
             child: AppBar(
               title: const Text('My apps'),
               elevation: 0.0,
-              backgroundColor: Colors.black87,
+              backgroundColor: colors.surface.withAlpha(240),
               actions: [
                 IconButton(
                   tooltip: 'Download APK',
@@ -77,8 +78,8 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
                   splashRadius: 20.0,
                   icon: SvgPicture.asset(
                     kGitHubIcon,
-                    colorFilter: const ColorFilter.mode(
-                      Colors.white,
+                    colorFilter: ColorFilter.mode(
+                      colors.onSurface,
                       BlendMode.srcIn,
                     ),
                   ),

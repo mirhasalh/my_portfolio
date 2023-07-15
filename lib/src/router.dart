@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
-import 'package:my_portfolio/src/page/pages.dart';
+
+import 'page/pages.dart';
 
 final router = GoRouter(
   initialLocation: '/',
@@ -10,7 +11,7 @@ final router = GoRouter(
       builder: (context, state) => const AppsPage(),
       routes: [
         GoRoute(
-          name: ViewImagePage.routeName,
+          name: '/image',
           path: ':path/:path2',
           builder: (context, state) => ViewImagePage(
             path:

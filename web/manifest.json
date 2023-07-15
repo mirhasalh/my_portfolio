@@ -1,10 +1,10 @@
 {
     "name": "Portfolio",
-    "short_name": "Flutter Folio",
+    "short_name": "My apps",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
+    "background_color": "#1b1b1b",
+    "theme_color": "#1b1b1b",
     "description": "Flutter projects gallery.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,

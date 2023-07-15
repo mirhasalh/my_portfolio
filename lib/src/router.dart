@@ -7,7 +7,7 @@ final router = GoRouter(
   routes: <GoRoute>[
     GoRoute(
       path: '/',
-      builder: (context, state) => const ShowcasesPage(),
+      builder: (context, state) => const AppsPage(),
       routes: [
         GoRoute(
           name: ViewImagePage.routeName,

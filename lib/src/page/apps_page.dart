@@ -16,14 +16,14 @@ import 'package:go_router/go_router.dart';
 import '../constants.dart';
 import '../model/project.dart';
 
-class ShowcasesPage extends ConsumerStatefulWidget {
-  const ShowcasesPage({super.key});
+class AppsPage extends ConsumerStatefulWidget {
+  const AppsPage({super.key});
 
   @override
   ShowcasesPageState createState() => ShowcasesPageState();
 }
 
-class ShowcasesPageState extends ConsumerState<ShowcasesPage> {
+class ShowcasesPageState extends ConsumerState<AppsPage> {
   @override
   Widget build(BuildContext context) {
     final projects = ref.watch(projectsProvider);
@@ -39,7 +39,7 @@ class ShowcasesPageState extends ConsumerState<ShowcasesPage> {
           child: BackdropFilter(
             filter: ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
             child: AppBar(
-              title: const Text('Showcases'),
+              title: const Text('My apps'),
               elevation: 0.0,
               backgroundColor: Colors.black87,
               actions: [
@@ -77,7 +77,10 @@ class ShowcasesPageState extends ConsumerState<ShowcasesPage> {
                   splashRadius: 20.0,
                   icon: SvgPicture.asset(
                     kGitHubIcon,
-                    theme: const SvgTheme(currentColor: Colors.white),
+                    colorFilter: const ColorFilter.mode(
+                      Colors.white,
+                      BlendMode.srcIn,
+                    ),
                   ),
                 ),
               ],
@@ -151,8 +154,10 @@ class ShowcasesPageState extends ConsumerState<ShowcasesPage> {
   }
 
   void _showInfo(Project project) {
+    final colors = Theme.of(context).colorScheme;
+
     showModalBottomSheet(
-      backgroundColor: Colors.white,
+      backgroundColor: colors.surface,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
@@ -176,7 +181,7 @@ class ShowcasesPageState extends ConsumerState<ShowcasesPage> {
                   style: Theme.of(context)
                       .textTheme
                       .titleSmall!
-                      .copyWith(color: Colors.black54),
+                      .copyWith(color: colors.onSurface),
                 ),
               ],
             ),
@@ -216,7 +221,7 @@ class ShowcasesPageState extends ConsumerState<ShowcasesPage> {
                   style: Theme.of(context)
                       .textTheme
                       .titleSmall!
-                      .copyWith(color: Colors.black54),
+                      .copyWith(color: colors.onSurface),
                 ),
               ],
             ),

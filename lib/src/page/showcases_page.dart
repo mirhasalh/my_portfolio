@@ -1,19 +1,19 @@
-import 'dart:convert';
+// import 'dart:convert';
 import 'dart:ui' as ui;
 
-import 'package:flutter/cupertino.dart';
-import 'package:my_portfolio/src/page/pages.dart';
+// import 'package:flutter/cupertino.dart';
+// import 'package:my_portfolio/src/page/pages.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+// import 'package:flutter/services.dart';
+// import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_portfolio/src/asset/icon_assets.dart';
-import 'package:my_portfolio/src/model/project_model.dart';
+// import 'package:my_portfolio/src/asset/icon_assets.dart';
+// import 'package:my_portfolio/src/model/project_model.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:go_router/go_router.dart';
+// import 'package:go_router/go_router.dart';
 
 const kGitRepoUrl = 'https://github.com/mirhasalh/my_portfolio';
 const kDropboxUrl =
@@ -27,13 +27,13 @@ class ShowcasesPage extends StatefulWidget {
 }
 
 class _ShowcasesPageState extends State<ShowcasesPage> {
-  late final Future<List<ProjectModel>> _projects = _getProjects();
+  // late final Future<List<ProjectModel>> _projects = _getProjects();
 
-  @override
-  void initState() {
-    super.initState();
-    _getProjects();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _getProjects();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -69,92 +69,92 @@ class _ShowcasesPageState extends State<ShowcasesPage> {
                   icon: const Icon(Icons.android),
                   splashRadius: 20.0,
                 ),
-                IconButton(
-                  tooltip: 'GitHub',
-                  onPressed: () {
-                    if (kIsWeb) {
-                      html.window.open(
-                        kGitRepoUrl,
-                        '_blank',
-                      );
+                // IconButton(
+                //   tooltip: 'GitHub',
+                //   onPressed: () {
+                //     if (kIsWeb) {
+                //       html.window.open(
+                //         kGitRepoUrl,
+                //         '_blank',
+                //       );
 
-                      return;
-                    }
+                //       return;
+                //     }
 
-                    _launchUrl(kGitRepoUrl);
-                  },
-                  splashRadius: 20.0,
-                  icon: SvgPicture.asset(
-                    IconAssets.github,
-                    color: Colors.white,
-                  ),
-                ),
+                //     _launchUrl(kGitRepoUrl);
+                //   },
+                //   splashRadius: 20.0,
+                //   icon: SvgPicture.asset(
+                //     IconAssets.github,
+                //     color: Colors.white,
+                //   ),
+                // ),
               ],
             ),
           ),
         ),
       ),
-      body: FutureBuilder<List<ProjectModel>>(
-        future: _projects,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CupertinoActivityIndicator());
-          } else if (snapshot.hasError) {
-            return const Center(child: Text("Failed to load"));
-          } else {
-            final proj = snapshot.data;
-            return ListView(
-              padding: const EdgeInsets.symmetric(
-                vertical: 40.0 + kToolbarHeight,
-                horizontal: 6.0,
-              ),
-              children: [
-                StaggeredGrid.count(
-                  crossAxisCount:
-                      _getAxisCount(MediaQuery.of(context).size.width),
-                  mainAxisSpacing: 6.0,
-                  crossAxisSpacing: 6.0,
-                  children: List.generate(
-                    proj!.length,
-                    (index) => _Project(
-                      id: '${proj[index].id}',
-                      src: proj[index].image!,
-                      title: proj[index].title!,
-                      initialCommit: proj[index].init!,
-                      projectStatus: proj[index].status!,
-                      onTap: () {
-                        var split =
-                            Uri.parse(proj[index].image!).path.split('/');
+      // body: FutureBuilder<List<ProjectModel>>(
+      //   future: _projects,
+      //   builder: (context, snapshot) {
+      //     if (snapshot.connectionState == ConnectionState.waiting) {
+      //       return const Center(child: CupertinoActivityIndicator());
+      //     } else if (snapshot.hasError) {
+      //       return const Center(child: Text("Failed to load"));
+      //     } else {
+      //       final proj = snapshot.data;
+      //       return ListView(
+      //         padding: const EdgeInsets.symmetric(
+      //           vertical: 40.0 + kToolbarHeight,
+      //           horizontal: 6.0,
+      //         ),
+      //         children: [
+      //           StaggeredGrid.count(
+      //             crossAxisCount:
+      //                 _getAxisCount(MediaQuery.of(context).size.width),
+      //             mainAxisSpacing: 6.0,
+      //             crossAxisSpacing: 6.0,
+      //             children: List.generate(
+      //               proj!.length,
+      //               (index) => _Project(
+      //                 id: '${proj[index].id}',
+      //                 src: proj[index].image!,
+      //                 title: proj[index].title!,
+      //                 initialCommit: proj[index].init!,
+      //                 projectStatus: proj[index].status!,
+      //                 onTap: () {
+      //                   var split =
+      //                       Uri.parse(proj[index].image!).path.split('/');
 
-                        final path2 = split.last;
-                        final path = split[split.length - 2];
+      //                   final path2 = split.last;
+      //                   final path = split[split.length - 2];
 
-                        final location = context.namedLocation(
-                          ViewImagePage.routeName,
-                          params: {'path': path, 'path2': path2},
-                        );
+      //                   final location = context.namedLocation(
+      //                     ViewImagePage.routeName,
+      //                     params: {'path': path, 'path2': path2},
+      //                   );
 
-                        context.go(location);
-                      },
-                      onTapInfo: () => _showInfo(proj[index]),
-                    ),
-                  ),
-                ),
-              ],
-            );
-          }
-        },
-      ),
+      //                   context.go(location);
+      //                 },
+      //                 onTapInfo: () => _showInfo(proj[index]),
+      //               ),
+      //             ),
+      //           ),
+      //         ],
+      //       );
+      //     }
+      //   },
+      // ),
     );
   }
 
-  Future<List<ProjectModel>> _getProjects() async {
-    final res = await rootBundle.loadString("json/projects.json");
+  // Future<List<ProjectModel>> _getProjects() async {
+  //   final res = await rootBundle.loadString("json/projects.json");
 
-    final data = json.decode(res);
+  //   final data = json.decode(res);
 
-    return (data as List).map((e) => ProjectModel.fromJson(e)).toList();
-  }
+  //   return (data as List).map((e) => ProjectModel.fromJson(e)).toList();
+  // }
 
   int _getAxisCount(double width) {
     if (width >= 800) {
@@ -177,81 +177,81 @@ class _ShowcasesPageState extends State<ShowcasesPage> {
     }
   }
 
-  void _showInfo(ProjectModel project) {
-    showModalBottomSheet(
-      backgroundColor: Colors.white,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
-      ),
-      context: context,
-      builder: (context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const _DragHandler(),
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(project.desc!,
-                    style: Theme.of(context).textTheme.titleMedium),
-                Text(
-                  'Description',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall!
-                      .copyWith(color: Colors.black54),
-                ),
-              ],
-            ),
-          ),
-          const Divider(height: 0.0),
-          ListTile(
-            title: Text(project.title!),
-            subtitle: const Text('Project title'),
-          ),
-          const Divider(height: 0.0),
-          ListTile(
-            title: Text(
-                project.type == 2 ? 'Associated with company' : 'Personal'),
-            subtitle: const Text('Type'),
-          ),
-          const Divider(height: 0.0),
-          ListTile(
-            title: Text(project.status!),
-            subtitle: const Text('Status'),
-          ),
-          const Divider(height: 0.0),
-          ListTile(
-            title: Text(project.init!),
-            subtitle: const Text('Initial commit'),
-          ),
-          const Divider(height: 0.0),
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(_techStackFormat(project.techStack!),
-                    style: Theme.of(context).textTheme.titleMedium),
-                Text(
-                  'Tech stack',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall!
-                      .copyWith(color: Colors.black54),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // void _showInfo(ProjectModel project) {
+  //   showModalBottomSheet(
+  //     backgroundColor: Colors.white,
+  //     isScrollControlled: true,
+  //     shape: const RoundedRectangleBorder(
+  //       borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
+  //     ),
+  //     context: context,
+  //     builder: (context) => Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       mainAxisSize: MainAxisSize.min,
+  //       children: [
+  //         const _DragHandler(),
+  //         Container(
+  //           padding: const EdgeInsets.all(16.0),
+  //           child: Column(
+  //             crossAxisAlignment: CrossAxisAlignment.start,
+  //             mainAxisSize: MainAxisSize.min,
+  //             children: [
+  //               Text(project.desc!,
+  //                   style: Theme.of(context).textTheme.titleMedium),
+  //               Text(
+  //                 'Description',
+  //                 style: Theme.of(context)
+  //                     .textTheme
+  //                     .titleSmall!
+  //                     .copyWith(color: Colors.black54),
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //         const Divider(height: 0.0),
+  //         ListTile(
+  //           title: Text(project.title!),
+  //           subtitle: const Text('Project title'),
+  //         ),
+  //         const Divider(height: 0.0),
+  //         ListTile(
+  //           title: Text(
+  //               project.type == 2 ? 'Associated with company' : 'Personal'),
+  //           subtitle: const Text('Type'),
+  //         ),
+  //         const Divider(height: 0.0),
+  //         ListTile(
+  //           title: Text(project.status!),
+  //           subtitle: const Text('Status'),
+  //         ),
+  //         const Divider(height: 0.0),
+  //         ListTile(
+  //           title: Text(project.init!),
+  //           subtitle: const Text('Initial commit'),
+  //         ),
+  //         const Divider(height: 0.0),
+  //         Container(
+  //           padding: const EdgeInsets.all(16.0),
+  //           child: Column(
+  //             crossAxisAlignment: CrossAxisAlignment.start,
+  //             mainAxisSize: MainAxisSize.min,
+  //             children: [
+  //               Text(_techStackFormat(project.techStack!),
+  //                   style: Theme.of(context).textTheme.titleMedium),
+  //               Text(
+  //                 'Tech stack',
+  //                 style: Theme.of(context)
+  //                     .textTheme
+  //                     .titleSmall!
+  //                     .copyWith(color: Colors.black54),
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   String _techStackFormat(String text) {
     if (text == 'n/a') {

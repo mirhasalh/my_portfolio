@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:my_portfolio/src/page/pages.dart';
 
-final kRouterConfig = GoRouter(
+final router = GoRouter(
   initialLocation: '/',
   routerNeglect: true,
   routes: <GoRoute>[
@@ -13,7 +13,8 @@ final kRouterConfig = GoRouter(
           name: ViewImagePage.routeName,
           path: ':path/:path2',
           builder: (context, state) => ViewImagePage(
-            path: '${state.params['path']!}${state.params['path2']!}',
+            path:
+                '${state.pathParameters['path']!}${state.pathParameters['path2']!}',
           ),
         ),
       ],

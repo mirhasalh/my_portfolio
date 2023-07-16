@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 
 import '../constants.dart';
+import '../theme.dart';
 import '../utils.dart' show viewImagePathFormat;
 
 class ViewImagePage extends StatelessWidget {
@@ -18,10 +19,12 @@ class ViewImagePage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        elevation: 0.0,
         backgroundColor: Colors.transparent,
+        leading: Theme(
+          data: darkTheme,
+          child: const BackButton(),
+        ),
       ),
-      backgroundColor: Colors.black87,
       body: PhotoView(
         heroAttributes: PhotoViewHeroAttributes(tag: path),
         imageProvider: NetworkImage(url),

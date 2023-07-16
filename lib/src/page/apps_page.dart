@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/src/page/pages.dart';
 import 'package:my_portfolio/src/providers/providers.dart';
+import 'package:my_portfolio/src/providers/theme_provider.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
   Widget build(BuildContext context) {
     final projects = ref.watch(projectsProvider);
     final colors = Theme.of(context).colorScheme;
+    final b = Theme.of(context).brightness.name;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -40,13 +42,26 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
           child: BackdropFilter(
             filter: ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
             child: AppBar(
-              title: const Text('My apps'),
+              title: const Text("My apps"),
               elevation: 0.0,
               backgroundColor: colors.surface.withAlpha(240),
               actions: [
                 IconButton(
-                  tooltip: 'Download APK',
-                  onPressed: () {
+                  onPressed: () => _showThemeSettings(),
+                  icon: Icon(b == 'dark' ? Icons.dark_mode : Icons.light_mode),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      drawer: Drawer(
+        child: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              children: [
+                ListTile(
+                  onTap: () {
                     if (kIsWeb) {
                       html.window.open(
                         kDropboxUrl,
@@ -58,12 +73,12 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
 
                     _launchUrl(kDropboxUrl);
                   },
-                  icon: const Icon(Icons.android),
-                  splashRadius: 20.0,
+                  title: const Text('Download Android'),
+                  leading: const Icon(Icons.android),
+                  subtitle: const Text("Download apk via Dropbox"),
                 ),
-                IconButton(
-                  tooltip: 'GitHub',
-                  onPressed: () {
+                ListTile(
+                  onTap: () {
                     if (kIsWeb) {
                       html.window.open(
                         kGitRepoUrl,
@@ -75,14 +90,15 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
 
                     _launchUrl(kGitRepoUrl);
                   },
-                  splashRadius: 20.0,
-                  icon: SvgPicture.asset(
+                  title: const Text('GitHub'),
+                  leading: SvgPicture.asset(
                     kGitHubIcon,
                     colorFilter: ColorFilter.mode(
-                      colors.onSurface,
+                      colors.onSurfaceVariant,
                       BlendMode.srcIn,
                     ),
                   ),
+                  subtitle: const Text("View source code on GitHub"),
                 ),
               ],
             ),
@@ -155,14 +171,10 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
   }
 
   void _showInfo(Project project) {
-    final colors = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
 
     showModalBottomSheet(
-      backgroundColor: colors.surface,
       isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
-      ),
       context: context,
       builder: (context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,14 +187,10 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(project.desc,
-                    style: Theme.of(context).textTheme.titleMedium),
+                Text(project.desc, style: textTheme.bodyLarge),
                 Text(
                   'Description',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall!
-                      .copyWith(color: colors.onSurface),
+                  style: textTheme.bodyMedium,
                 ),
               ],
             ),
@@ -216,13 +224,10 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(_techStackFormat(project.techStack),
-                    style: Theme.of(context).textTheme.titleMedium),
+                    style: textTheme.bodyLarge),
                 Text(
                   'Tech stack',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall!
-                      .copyWith(color: colors.onSurface),
+                  style: textTheme.bodyMedium,
                 ),
               ],
             ),
@@ -240,6 +245,33 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
     var split = text.split(',');
 
     return split.join(', ');
+  }
+
+  void _showThemeSettings() {
+    final themeMode = ref.watch(themeProvider).themeMode;
+    final nav = Navigator.of(context);
+
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const _DragHandler(),
+          ...ThemeMode.values.map(
+            (v) => RadioListTile(
+              value: v,
+              groupValue: themeMode,
+              onChanged: (v) {
+                ref.read(themeProvider).setThemeMode(v!);
+                nav.pop();
+              },
+              title: Text(v.name),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -306,14 +338,14 @@ class _DragHandler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 12.0, bottom: 16.0),
+      padding: const EdgeInsets.only(top: 4.0, bottom: 16.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
-            height: 4,
-            width: 40,
+            height: 4.0,
+            width: 60.0,
             decoration: BoxDecoration(
               color: Colors.black12,
               borderRadius: BorderRadius.circular(9.0),

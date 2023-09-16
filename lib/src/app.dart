@@ -11,11 +11,10 @@ class App extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
     final themeMode = ref.watch(themeProvider).themeMode;
 
     return MaterialApp.router(
-      onGenerateTitle: (_) => l10n.appTitle,
+      onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
       theme: theme,
       darkTheme: darkTheme,
       themeMode: themeMode,

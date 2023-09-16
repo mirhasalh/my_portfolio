@@ -7,13 +7,13 @@ import 'package:my_portfolio/src/providers/providers.dart';
 import 'package:my_portfolio/src/providers/theme_provider.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:go_router/go_router.dart';
 
+import '../common.dart';
 import '../constants.dart';
 import '../model/project.dart';
 
@@ -27,6 +27,7 @@ class AppsPage extends ConsumerStatefulWidget {
 class ShowcasesPageState extends ConsumerState<AppsPage> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final projects = ref.watch(projectsProvider);
     final colors = Theme.of(context).colorScheme;
     final b = Theme.of(context).brightness.name;
@@ -42,7 +43,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
           child: BackdropFilter(
             filter: ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
             child: AppBar(
-              title: const Text("My apps"),
+              title: Text(l10n.myApps),
               elevation: 0.0,
               backgroundColor: colors.surface.withAlpha(240),
               actions: [
@@ -73,9 +74,9 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
 
                     _launchUrl(kDropboxUrl);
                   },
-                  title: const Text('Download Android'),
+                  title: Text(l10n.downloadApk),
                   leading: const Icon(Icons.android),
-                  subtitle: const Text("Download apk via Dropbox"),
+                  subtitle: Text(l10n.downloadApkSubtitle),
                 ),
                 ListTile(
                   onTap: () {
@@ -98,7 +99,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
                       BlendMode.srcIn,
                     ),
                   ),
-                  subtitle: const Text("View source code on GitHub"),
+                  subtitle: Text(l10n.githubSubtitle),
                 ),
               ],
             ),

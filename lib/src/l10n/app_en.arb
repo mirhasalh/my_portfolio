@@ -1,0 +1,22 @@
+{
+    "appTitle": "Irhas's portfolio",
+    "@appTitle": {
+        "description": "A title for apps page"
+    },
+    "myApps": "My apps",
+    "@myApps": {
+        "description": "A title for apps page"
+    },
+    "downloadApk": "Download APK",
+    "@downloadApk": {
+        "description": "A title for download apk button"
+    },
+    "downloadApkSubtitle": "Download APK via Dropbox",
+    "@downloadApkSubtitle": {
+        "description": "A subtitle for download apk button"
+    },
+    "githubSubtitle": "View source code on GitHub",
+    "@githubSubtitle": {
+        "description": "A subtitle for GitHub button"
+    }
+}

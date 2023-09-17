@@ -3,5 +3,11 @@
     "myApps": "App saya",
     "downloadApk": "Unduh APK",
     "downloadApkSubtitle": "Unduh APK via Dropbox",
-    "githubSubtitle": "Lihat sumber kode di GitHub"
+    "githubSubtitle": "Lihat sumber kode di GitHub",
+    "desc": "Deskripsi",
+    "type": "Tipe",
+    "techStack": "Tumpukan teknologi",
+    "associatedWithCompany": "Dikaitkan dengan perusahaan",
+    "projectTitle": "Judul projek",
+    "uiOnly": "Hanya UI kit"
 }

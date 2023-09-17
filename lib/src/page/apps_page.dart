@@ -173,6 +173,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
 
   void _showInfo(Project project) {
     final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context)!;
 
     showModalBottomSheet(
       isScrollControlled: true,
@@ -199,13 +200,13 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
           const Divider(height: 0.0),
           ListTile(
             title: Text(project.title),
-            subtitle: const Text('Project title'),
+            subtitle: Text(l10n.projectTitle),
           ),
           const Divider(height: 0.0),
           ListTile(
             title: Text(
-                project.type == 2 ? 'Associated with company' : 'Personal'),
-            subtitle: const Text('Type'),
+                project.type == 2 ? l10n.associatedWithCompany : 'Personal'),
+            subtitle: Text(l10n.type),
           ),
           const Divider(height: 0.0),
           ListTile(
@@ -227,7 +228,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
                 Text(_techStackFormat(project.techStack),
                     style: textTheme.bodyLarge),
                 Text(
-                  'Tech stack',
+                  l10n.techStack,
                   style: textTheme.bodyMedium,
                 ),
               ],
@@ -239,8 +240,10 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
   }
 
   String _techStackFormat(String text) {
+    final l10n = AppLocalizations.of(context)!;
+
     if (text == 'n/a') {
-      return 'UI kit only';
+      return l10n.uiOnly;
     }
 
     var split = text.split(',');

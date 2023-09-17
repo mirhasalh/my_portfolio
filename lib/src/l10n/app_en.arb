@@ -18,5 +18,29 @@
     "githubSubtitle": "View source code on GitHub",
     "@githubSubtitle": {
         "description": "A subtitle for GitHub button"
+    },
+    "desc": "Description",
+    "@desc": {
+        "description": "A subtitle for description list tile"
+    },
+    "type": "Type",
+    "@type": {
+        "description": "A subtitle for type list tile"
+    },
+    "techStack": "Tech stack",
+    "@techStack": {
+        "description": "A subtitle for tech stack list tile"
+    },
+    "associatedWithCompany": "Associated with company",
+    "@associatedWithCompany": {
+        "description": "A title for tech status list tile"
+    },
+    "projectTitle": "Project title",
+    "@projectTitle": {
+        "description": "A title for project title list tile"
+    },
+    "uiOnly": "UI kit only",
+    "@uiOnly": {
+        "description": "A title for tech stack list tile"
     }
 }

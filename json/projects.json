@@ -1,5 +1,16 @@
 [
   {
+    "id": 11,
+    "type": 1,
+    "title": "Open-source Prayer Schedule",
+    "init": "2023",
+    "status": "Active contribute",
+    "desc": "Display prayer schedule for only Indonesia cities.",
+    "image": "https://i.ibb.co/VvRNVQK/IMG-20230929-055113.png",
+    "vertical": true,
+    "tech_stack": "Riverpod,RESTful API,Git"
+  },
+  {
     "id": 10,
     "type": 2,
     "title": "Used Cooking Oil (UCO) App",

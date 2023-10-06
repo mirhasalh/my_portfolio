@@ -1,6 +1,6 @@
 # my_portfolio
 
-A Flutter project for my portfolio.
+A Flutter project for Irhas's portfolio.
 
 ## About My Portfolio
 

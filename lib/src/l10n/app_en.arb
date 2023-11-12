@@ -42,5 +42,17 @@
     "uiOnly": "UI kit only",
     "@uiOnly": {
         "description": "A title for tech stack list tile"
+    },
+    "system": "System",
+    "@system": {
+        "description": "A title for system list tile"
+    },
+    "light": "Light",
+    "@light": {
+        "description": "A title for light list tile"
+    },
+    "dark": "Dark",
+    "@dark": {
+        "description": "A title for dark list tile"
     }
 }

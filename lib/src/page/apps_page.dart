@@ -270,12 +270,27 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
                 ref.read(themeProvider).setThemeMode(v!);
                 nav.pop();
               },
-              title: Text(v.name),
+              title: Text(t(v.name)),
             ),
           ),
         ],
       ),
     );
+  }
+
+  String t(String name) {
+    final l10n = AppLocalizations.of(context)!;
+
+    switch (name) {
+      case 'system':
+        return l10n.system;
+      case 'light':
+        return l10n.light;
+      case 'dark':
+        return l10n.dark;
+      default:
+        return 'n/a';
+    }
   }
 }
 

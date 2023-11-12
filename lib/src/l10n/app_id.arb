@@ -9,5 +9,8 @@
     "techStack": "Tumpukan teknologi",
     "associatedWithCompany": "Dikaitkan dengan perusahaan",
     "projectTitle": "Judul projek",
-    "uiOnly": "Hanya UI kit"
+    "uiOnly": "Hanya UI kit",
+    "system": "Sistem",
+    "light": "Terang",
+    "dark": "Gelap"
 }

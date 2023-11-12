@@ -54,5 +54,9 @@
     "dark": "Dark",
     "@dark": {
         "description": "A title for dark list tile"
+    },
+    "goToSourceCode": "Go to source code",
+    "@goToSourceCode": {
+        "description": "A title for go to source code list tile"
     }
 }

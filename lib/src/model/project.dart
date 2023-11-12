@@ -14,6 +14,7 @@ class Project with _$Project {
     required String desc,
     required String image,
     required bool vertical,
+    required String source,
     @JsonKey(name: 'tech_stack') required String techStack,
   }) = _Project;
 

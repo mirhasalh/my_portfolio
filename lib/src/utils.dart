@@ -19,3 +19,8 @@ Future<List<Project>> getProjects() async {
 
   return (data as List).map((e) => Project.fromJson(e)).toList();
 }
+
+String getHostName(String url) {
+  final split = url.split('/');
+  return split[2];
+}

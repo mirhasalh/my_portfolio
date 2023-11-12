@@ -16,6 +16,7 @@ import 'package:go_router/go_router.dart';
 import '../common.dart';
 import '../constants.dart';
 import '../model/project.dart';
+import '../utils.dart' show getHostName;
 
 class AppsPage extends ConsumerStatefulWidget {
   const AppsPage({super.key});
@@ -183,6 +184,14 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
         mainAxisSize: MainAxisSize.min,
         children: [
           const _DragHandler(),
+          if (project.source != 'n/a')
+            ListTile(
+              title: Text(getHostName(project.source)),
+              subtitle: Text(l10n.goToSourceCode),
+              trailing: const Icon(Icons.open_in_new),
+              onTap: () => _launchUrl(project.source),
+            ),
+          if (project.source != 'n/a') const Divider(height: 0.0),
           Container(
             padding: const EdgeInsets.all(16.0),
             child: Column(

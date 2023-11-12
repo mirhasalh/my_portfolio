@@ -12,5 +12,6 @@
     "uiOnly": "Hanya UI kit",
     "system": "Sistem",
     "light": "Terang",
-    "dark": "Gelap"
+    "dark": "Gelap",
+    "goToSourceCode": "Kunjungi sumber kode"
 }

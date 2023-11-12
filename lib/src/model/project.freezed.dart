@@ -28,6 +28,7 @@ mixin _$Project {
   String get desc => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   bool get vertical => throw _privateConstructorUsedError;
+  String get source => throw _privateConstructorUsedError;
   @JsonKey(name: 'tech_stack')
   String get techStack => throw _privateConstructorUsedError;
 
@@ -50,6 +51,7 @@ abstract class $ProjectCopyWith<$Res> {
       String desc,
       String image,
       bool vertical,
+      String source,
       @JsonKey(name: 'tech_stack') String techStack});
 }
 
@@ -74,6 +76,7 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
     Object? desc = null,
     Object? image = null,
     Object? vertical = null,
+    Object? source = null,
     Object? techStack = null,
   }) {
     return _then(_value.copyWith(
@@ -109,6 +112,10 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
           ? _value.vertical
           : vertical // ignore: cast_nullable_to_non_nullable
               as bool,
+      source: null == source
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as String,
       techStack: null == techStack
           ? _value.techStack
           : techStack // ignore: cast_nullable_to_non_nullable
@@ -118,10 +125,10 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
 }
 
 /// @nodoc
-abstract class _$$_ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
-  factory _$$_ProjectCopyWith(
-          _$_Project value, $Res Function(_$_Project) then) =
-      __$$_ProjectCopyWithImpl<$Res>;
+abstract class _$$ProjectImplCopyWith<$Res> implements $ProjectCopyWith<$Res> {
+  factory _$$ProjectImplCopyWith(
+          _$ProjectImpl value, $Res Function(_$ProjectImpl) then) =
+      __$$ProjectImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -133,14 +140,16 @@ abstract class _$$_ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
       String desc,
       String image,
       bool vertical,
+      String source,
       @JsonKey(name: 'tech_stack') String techStack});
 }
 
 /// @nodoc
-class __$$_ProjectCopyWithImpl<$Res>
-    extends _$ProjectCopyWithImpl<$Res, _$_Project>
-    implements _$$_ProjectCopyWith<$Res> {
-  __$$_ProjectCopyWithImpl(_$_Project _value, $Res Function(_$_Project) _then)
+class __$$ProjectImplCopyWithImpl<$Res>
+    extends _$ProjectCopyWithImpl<$Res, _$ProjectImpl>
+    implements _$$ProjectImplCopyWith<$Res> {
+  __$$ProjectImplCopyWithImpl(
+      _$ProjectImpl _value, $Res Function(_$ProjectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -154,9 +163,10 @@ class __$$_ProjectCopyWithImpl<$Res>
     Object? desc = null,
     Object? image = null,
     Object? vertical = null,
+    Object? source = null,
     Object? techStack = null,
   }) {
-    return _then(_$_Project(
+    return _then(_$ProjectImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -189,6 +199,10 @@ class __$$_ProjectCopyWithImpl<$Res>
           ? _value.vertical
           : vertical // ignore: cast_nullable_to_non_nullable
               as bool,
+      source: null == source
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as String,
       techStack: null == techStack
           ? _value.techStack
           : techStack // ignore: cast_nullable_to_non_nullable
@@ -199,8 +213,8 @@ class __$$_ProjectCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Project implements _Project {
-  const _$_Project(
+class _$ProjectImpl implements _Project {
+  const _$ProjectImpl(
       {required this.id,
       required this.type,
       required this.title,
@@ -209,10 +223,11 @@ class _$_Project implements _Project {
       required this.desc,
       required this.image,
       required this.vertical,
+      required this.source,
       @JsonKey(name: 'tech_stack') required this.techStack});
 
-  factory _$_Project.fromJson(Map<String, dynamic> json) =>
-      _$$_ProjectFromJson(json);
+  factory _$ProjectImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProjectImplFromJson(json);
 
   @override
   final int id;
@@ -231,19 +246,21 @@ class _$_Project implements _Project {
   @override
   final bool vertical;
   @override
+  final String source;
+  @override
   @JsonKey(name: 'tech_stack')
   final String techStack;
 
   @override
   String toString() {
-    return 'Project(id: $id, type: $type, title: $title, init: $init, status: $status, desc: $desc, image: $image, vertical: $vertical, techStack: $techStack)';
+    return 'Project(id: $id, type: $type, title: $title, init: $init, status: $status, desc: $desc, image: $image, vertical: $vertical, source: $source, techStack: $techStack)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Project &&
+            other is _$ProjectImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.title, title) || other.title == title) &&
@@ -253,6 +270,7 @@ class _$_Project implements _Project {
             (identical(other.image, image) || other.image == image) &&
             (identical(other.vertical, vertical) ||
                 other.vertical == vertical) &&
+            (identical(other.source, source) || other.source == source) &&
             (identical(other.techStack, techStack) ||
                 other.techStack == techStack));
   }
@@ -260,17 +278,17 @@ class _$_Project implements _Project {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, type, title, init, status,
-      desc, image, vertical, techStack);
+      desc, image, vertical, source, techStack);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProjectCopyWith<_$_Project> get copyWith =>
-      __$$_ProjectCopyWithImpl<_$_Project>(this, _$identity);
+  _$$ProjectImplCopyWith<_$ProjectImpl> get copyWith =>
+      __$$ProjectImplCopyWithImpl<_$ProjectImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProjectToJson(
+    return _$$ProjectImplToJson(
       this,
     );
   }
@@ -286,10 +304,11 @@ abstract class _Project implements Project {
           required final String desc,
           required final String image,
           required final bool vertical,
+          required final String source,
           @JsonKey(name: 'tech_stack') required final String techStack}) =
-      _$_Project;
+      _$ProjectImpl;
 
-  factory _Project.fromJson(Map<String, dynamic> json) = _$_Project.fromJson;
+  factory _Project.fromJson(Map<String, dynamic> json) = _$ProjectImpl.fromJson;
 
   @override
   int get id;
@@ -308,10 +327,12 @@ abstract class _Project implements Project {
   @override
   bool get vertical;
   @override
+  String get source;
+  @override
   @JsonKey(name: 'tech_stack')
   String get techStack;
   @override
   @JsonKey(ignore: true)
-  _$$_ProjectCopyWith<_$_Project> get copyWith =>
+  _$$ProjectImplCopyWith<_$ProjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -117,6 +117,6 @@ flutter:
   # Run scripts defined in a pubspec.yaml just like in node.js with the
   # run command.
 scripts:
-  build: flutter pub run build_runner build --delete-conflicting-outputs
-  watch: flutter pub run build_runner watch
-  generate_launcher_icons: flutter pub run flutter_launcher_icons -f flutter_launcher_icons.yaml
+  build: dart pub run build_runner build --delete-conflicting-outputs
+  watch: dart pub run build_runner watch
+  generate_launcher_icons: dart pub run flutter_launcher_icons -f flutter_launcher_icons.yaml

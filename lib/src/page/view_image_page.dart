@@ -3,7 +3,6 @@ import 'package:photo_view/photo_view.dart';
 
 import '../constants.dart';
 import '../theme.dart';
-import '../utils.dart' show viewImagePathFormat;
 
 class ViewImagePage extends StatelessWidget {
   static const routeName = '/image';
@@ -14,7 +13,7 @@ class ViewImagePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final url = '$kImgBbBaseUrl${viewImagePathFormat(path)}';
+    final url = '$kImgBbBaseUrl/$path';
 
     return Scaffold(
       extendBodyBehindAppBar: true,

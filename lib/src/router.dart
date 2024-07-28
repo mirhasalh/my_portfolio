@@ -12,10 +12,9 @@ final router = GoRouter(
       routes: [
         GoRoute(
           name: '/image',
-          path: ':path/:path2',
+          path: ':path',
           builder: (context, state) => ViewImagePage(
-            path:
-                '${state.pathParameters['path']!}${state.pathParameters['path2']!}',
+            path: state.pathParameters['path']!,
           ),
         ),
       ],

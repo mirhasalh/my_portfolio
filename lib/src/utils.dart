@@ -4,12 +4,6 @@ import 'package:flutter/services.dart';
 
 import 'model/project.dart';
 
-String viewImagePathFormat(String text) {
-  var split = text.split('IMG');
-
-  return '/${split[0]}/IMG${split.last}';
-}
-
 Future<List<Project>> getProjects() async {
   const path = 'json/projects.json';
 

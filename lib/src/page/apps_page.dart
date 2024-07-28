@@ -129,12 +129,11 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
                   onTap: () {
                     var split = Uri.parse(data[index].image).path.split('/');
 
-                    final path2 = split.last;
-                    final path = split[split.length - 2];
+                    final path = split.last;
 
                     final location = context.namedLocation(
                       ViewImagePage.routeName,
-                      pathParameters: {'path': path, 'path2': path2},
+                      pathParameters: {'path': path},
                     );
 
                     context.go(location);

@@ -9,7 +9,7 @@ This project is used to showcase Irhas's Flutter projects. I'm happy 😁 to pro
 ## Supported platforms
 
 - Android ([.apk](https://www.dropbox.com/scl/fo/cqoghbdsa3iisbusoxkkm/h?rlkey=wz8cyejx1auq8zo3f0tpl0mgu&dl=0))
-- [Web](https://flutter.mirhasalh.xyz/#/)
+- [Web](https://flutter.irhas.lol/#/)
 
 ## Installation
 

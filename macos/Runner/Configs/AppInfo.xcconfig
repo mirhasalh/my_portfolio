@@ -8,7 +8,7 @@
 PRODUCT_NAME = my_portfolio
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = xyz.mirhasalh.myPortfolio
+PRODUCT_BUNDLE_IDENTIFIER = lol.irhas.myPortfolio
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2022 xyz.mirhasalh. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2022 lol.irhas. All rights reserved.

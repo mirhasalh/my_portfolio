@@ -108,41 +108,44 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
         ),
       ),
       body: projects.when(
-        data: (data) => ListView(
-          padding: const EdgeInsets.symmetric(
-            vertical: 40.0 + kToolbarHeight,
-            horizontal: 6.0,
-          ),
-          children: [
-            StaggeredGrid.count(
-              crossAxisCount: _getAxisCount(MediaQuery.of(context).size.width),
-              mainAxisSpacing: 6.0,
-              crossAxisSpacing: 6.0,
-              children: List.generate(
-                data.length,
-                (index) => _Project(
-                  id: '${data[index].id}',
-                  src: data[index].image,
-                  title: data[index].title,
-                  initialCommit: data[index].init,
-                  projectStatus: data[index].status,
-                  onTap: () {
-                    var split = Uri.parse(data[index].image).path.split('/');
+        data: (data) => SafeArea(
+          child: ListView(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 6.0,
+            ),
+            children: [
+              const SizedBox(height: 4.0),
+              StaggeredGrid.count(
+                crossAxisCount:
+                    _getAxisCount(MediaQuery.of(context).size.width),
+                mainAxisSpacing: 6.0,
+                crossAxisSpacing: 6.0,
+                children: List.generate(
+                  data.length,
+                  (index) => _Project(
+                    id: '${data[index].id}',
+                    src: data[index].image,
+                    title: data[index].title,
+                    initialCommit: data[index].init,
+                    projectStatus: data[index].status,
+                    onTap: () {
+                      var split = Uri.parse(data[index].image).path.split('/');
 
-                    final path = split.last;
+                      final path = split.last;
 
-                    final location = context.namedLocation(
-                      ViewImagePage.routeName,
-                      pathParameters: {'path': path},
-                    );
+                      final location = context.namedLocation(
+                        ViewImagePage.routeName,
+                        pathParameters: {'path': path},
+                      );
 
-                    context.go(location);
-                  },
-                  onTapInfo: () => _showInfo(data[index]),
+                      context.go(location);
+                    },
+                    onTapInfo: () => _showInfo(data[index]),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         error: (_, __) => const Center(child: CupertinoActivityIndicator()),
         loading: () => const SizedBox.shrink(),

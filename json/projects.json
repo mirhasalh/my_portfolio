@@ -6,7 +6,7 @@
     "init": "2023",
     "status": "Active contribute",
     "desc": "The simplest yet Expenses Tracker app that doesn't even require an internet connection.",
-    "image": "https://irhas.lol/IMG_20231112-103813.png",
+    "image": "https://flutter.irhas.lol/IMG_20231112-103813.png",
     "vertical": true,
     "tech_stack": "Isar Database,Riverpod,Git",
     "source": "https://github.com/pwdev23/boros_app"
@@ -18,7 +18,7 @@
     "init": "2023",
     "status": "Active contribute",
     "desc": "Display prayer schedule for only Indonesia cities.",
-    "image": "https://irhas.lol/IMG_20230929-055113.png",
+    "image": "https://flutter.irhas.lol/IMG_20230929-055113.png",
     "vertical": true,
     "tech_stack": "Riverpod,RESTful API,Git",
     "source": "https://github.com/pwdev23/jadwal_sholat"
@@ -30,7 +30,7 @@
     "init": "2023",
     "status": "Active contribute",
     "desc": "Connect people to collect UCO.",
-    "image": "https://irhas.lol/IMG_20230521-195115.png",
+    "image": "https://flutter.irhas.lol/IMG_20230521-195115.png",
     "vertical": true,
     "tech_stack": "Google Maps Platform,Riverpod,MongoDB,Node.js,RESTful API,Git",
     "source": "n/a"

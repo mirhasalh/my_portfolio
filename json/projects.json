@@ -5,7 +5,7 @@
     "title": "Open-source Boros app",
     "init": "2023",
     "status": "Active contribute",
-    "desc": "The simplest yet Expenses Tracker app that doesn't even require an internet connection.",
+    "desc": "A very simple Expense Tracker app that doesn't even require an internet connection.",
     "image": "https://flutter.irhas.lol/IMG_20231112-103813.png",
     "vertical": true,
     "tech_stack": "Isar Database,Riverpod,Git",

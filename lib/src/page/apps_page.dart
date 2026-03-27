@@ -36,10 +36,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
-        preferredSize: Size(
-          MediaQuery.of(context).size.width,
-          kToolbarHeight,
-        ),
+        preferredSize: Size(MediaQuery.of(context).size.width, kToolbarHeight),
         child: ClipRRect(
           child: BackdropFilter(
             filter: ui.ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
@@ -65,10 +62,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
                 ListTile(
                   onTap: () {
                     if (kIsWeb) {
-                      html.window.open(
-                        kDropboxUrl,
-                        '_blank',
-                      );
+                      html.window.open(kDropboxUrl, '_blank');
 
                       return;
                     }
@@ -82,10 +76,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
                 ListTile(
                   onTap: () {
                     if (kIsWeb) {
-                      html.window.open(
-                        kGitRepoUrl,
-                        '_blank',
-                      );
+                      html.window.open(kGitRepoUrl, '_blank');
 
                       return;
                     }
@@ -110,14 +101,13 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
       body: projects.when(
         data: (data) => SafeArea(
           child: ListView(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 6.0,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 6.0),
             children: [
               const SizedBox(height: 4.0),
               StaggeredGrid.count(
-                crossAxisCount:
-                    _getAxisCount(MediaQuery.of(context).size.width),
+                crossAxisCount: _getAxisCount(
+                  MediaQuery.of(context).size.width,
+                ),
                 mainAxisSpacing: 6.0,
                 crossAxisSpacing: 6.0,
                 children: List.generate(
@@ -147,7 +137,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
             ],
           ),
         ),
-        error: (_, __) => const Center(child: CupertinoActivityIndicator()),
+        error: (_, _) => const Center(child: CupertinoActivityIndicator()),
         loading: () => const SizedBox.shrink(),
       ),
     );
@@ -164,12 +154,14 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
   }
 
   Future<void> _launchUrl(String url) async {
-    if (!await launchUrl(Uri.parse(url),
-        mode: LaunchMode.platformDefault,
-        webViewConfiguration: const WebViewConfiguration(
-          enableJavaScript: true,
-          enableDomStorage: true,
-        ))) {
+    if (!await launchUrl(
+      Uri.parse(url),
+      mode: LaunchMode.platformDefault,
+      webViewConfiguration: const WebViewConfiguration(
+        enableJavaScript: true,
+        enableDomStorage: true,
+      ),
+    )) {
       throw 'Could not launch $url';
     }
   }
@@ -201,10 +193,7 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(project.desc, style: textTheme.bodyLarge),
-                Text(
-                  'Description',
-                  style: textTheme.bodyMedium,
-                ),
+                Text('Description', style: textTheme.bodyMedium),
               ],
             ),
           ),
@@ -216,14 +205,12 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
           const Divider(height: 0.0),
           ListTile(
             title: Text(
-                project.type == 2 ? l10n.associatedWithCompany : 'Personal'),
+              project.type == 2 ? l10n.associatedWithCompany : 'Personal',
+            ),
             subtitle: Text(l10n.type),
           ),
           const Divider(height: 0.0),
-          ListTile(
-            title: Text(project.status),
-            subtitle: const Text('Status'),
-          ),
+          ListTile(title: Text(project.status), subtitle: const Text('Status')),
           const Divider(height: 0.0),
           ListTile(
             title: Text(project.init),
@@ -236,12 +223,11 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(_techStackFormat(project.techStack),
-                    style: textTheme.bodyLarge),
                 Text(
-                  l10n.techStack,
-                  style: textTheme.bodyMedium,
+                  _techStackFormat(project.techStack),
+                  style: textTheme.bodyLarge,
                 ),
+                Text(l10n.techStack, style: textTheme.bodyMedium),
               ],
             ),
           ),
@@ -268,23 +254,22 @@ class ShowcasesPageState extends ConsumerState<AppsPage> {
 
     showModalBottomSheet(
       context: context,
-      builder: (context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const _DragHandler(),
-          ...ThemeMode.values.map(
-            (v) => RadioListTile(
-              value: v,
-              groupValue: themeMode,
-              onChanged: (v) {
-                ref.read(themeProvider).setThemeMode(v!);
-                nav.pop();
-              },
-              title: Text(t(v.name)),
+      builder: (context) => RadioGroup(
+        groupValue: themeMode,
+        onChanged: (v) {
+          ref.read(themeProvider).setThemeMode(v!);
+          nav.pop();
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const _DragHandler(),
+            ...ThemeMode.values.map(
+              (v) => RadioListTile(value: v, title: Text(t(v.name))),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -350,10 +335,7 @@ class _Project extends StatelessWidget {
           ),
           IconButton(
             onPressed: onTapInfo,
-            icon: const Icon(
-              Icons.info_outline,
-              color: Colors.white70,
-            ),
+            icon: const Icon(Icons.info_outline, color: Colors.white70),
             tooltip: 'Info',
           ),
         ],
